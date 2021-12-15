@@ -130,8 +130,7 @@ void Node::reverseList(){
     tail = current;    
 }
 
-//rework this with first at head and second at NULL to remove too many if statements
-//else second = first and first = first->next may work
+// redo this with the delete keyword later on 
 void Node::deleteData(int deldat){
     Node* first = head->next;
     Node* second = head;
