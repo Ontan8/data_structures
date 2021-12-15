@@ -13,7 +13,7 @@ int main(){
     h.addToHash(8, "Raiden");
     h.addToHash(18, "Ayaka");
     h.addToHash(28, "Eula");
-    h.addToHash(1, "Tanishq");
+    h.addToHash(1, "Miko");
     h.addToHash(683, "Lisa");
     h.print(8);
     h.deleteFromHash(18);
