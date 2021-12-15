@@ -11,7 +11,7 @@ struct Node{
         string value;
         Node* next;  
         Node* head{NULL};  
-        Node* traverse;  //to traverse the linked list inside the array declared under HashTable's private section so this has to be used in a member function because this cannot be directly used in HashTable's struct because it is private
+        Node* traverse;  //to traverse the hash table array which contains the head of the linked lsit
     public:
         Node* addData(int key, string value);
         void printData(Node* arr[], int key, int index);
