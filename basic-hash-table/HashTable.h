@@ -24,26 +24,22 @@ int HashTable::hashfunction(int key){
 }
 
 void HashTable::print(int key){
-    int index{hashfunction(key)};
-    list.printData(hasharr, key, index);
+    list.printData(hasharr, key, hashfunction(key));
     return;
 }
 
 int HashTable::addToHash(int key, string value){
-    int index = hashfunction(key);
-    hasharr[index] = list.addData(key, value);
+    hasharr[hashfunction(key)] = list.addData(key, value);
     return 1;
 }
 
 int HashTable::deleteFromHash(int key){
-    int index = hashfunction(key);
-    list.deleteData(hasharr, key, index);
+    list.deleteData(hasharr, key, hashfunction(key));
     return 1;
 }
 
 string HashTable::searchHash(int key){
-    int index = hashfunction(key);
-    return list.searchData(hasharr, index, key);
+    return list.searchData(hasharr, hashfunction(key), key);
 }
 
 #endif
