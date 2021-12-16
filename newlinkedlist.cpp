@@ -4,9 +4,8 @@ using namespace std;
 
 //sorting a linked list??
 
-class Node{
+struct Node{
     private:
-        Node* head;
         int data;
         Node* next;
     public:
@@ -16,10 +15,9 @@ class Node{
         int printList();
         int searchData(int data2);
         int addDataEnd(int data1);
-        Node(){
-            head = NULL;
-        }
 };
+
+Node* head = NULL;
 
 int Node::addData(int data1){
     Node* temp = new Node();
