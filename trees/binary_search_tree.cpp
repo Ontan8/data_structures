@@ -2,6 +2,8 @@
 #include<string>
 using namespace std;
 
+//for a bst the min will be present at the leftmost node and max will be present at the rightmost node
+
 struct Node{
     private:
         int data; //value to be inserted into the binary tree
@@ -54,7 +56,7 @@ void Node::print(){
     Node* traverse2 = root;
     while(traverse2 != NULL){
         cout<<traverse2->data<<endl;
-        traverse2 = traverse2->right;
+        traverse2 = traverse2->left;
     }
 }
 
