@@ -4,17 +4,17 @@ using namespace std;
 
 struct Node{
     private:
-        int data;
-        Node* left{NULL};
-        Node* right{NULL};
+        int data; //value to be inserted into the binary tree
+        Node* left{NULL}; //pointing to the left subtree
+        Node* right{NULL}; // pointing to the right subtree
     public:
-        Node* setData(int data);
-        void insert(int data);
+        Node* setData(int data); //requires the insert function if root is not null
+        void insert(int data); //requires the setData function to return the address of the pointer
         void print();
+        bool searchData(int data); 
 };
 
 Node* root = NULL; //this points to the root of the binary search tree
-Node* traverse;  //a global variable to traverse the tree without resorting to recursion
 
 Node* Node::setData(int data){
     Node* temp = new Node();
@@ -23,12 +23,12 @@ Node* Node::setData(int data){
         root = temp;
         return NULL;
     }
-    traverse = root;
     return temp;
 }
 
 void Node::insert(int data){
     Node* temp = setData(data);
+    Node* traverse = root;
     if(!temp){
         return;
     }
@@ -58,6 +58,19 @@ void Node::print(){
     }
 }
 
+bool Node::searchData(int data){
+    Node* temp = root;
+    while(temp){
+        if(data == temp->data){
+            cout<<"data found"<<endl;
+            return true;
+        }
+        temp = (data <= temp->data) ? temp->left : temp->right;
+    }
+    cout<<"data not found" <<endl;
+    return false;
+}
+
 int main(){
     Node bst;
     bst.insert(15);
@@ -67,6 +80,12 @@ int main(){
     bst.insert(3);
     bst.insert(12);
     bst.insert(2);
+    bst.insert(598);
+    bst.insert(1);
+    bst.searchData(598);
+    bst.searchData(12);
+    bst.searchData(2);
+    bst.searchData(4);
     bst.print();
     return 0;
 }
